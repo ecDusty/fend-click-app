@@ -1,0 +1,72 @@
+@import "./reset/basic-reset";
+
+body {
+  background-color: #e6e6e6;
+  border: 0.5px orange dotted;
+}
+
+.container {
+  width: 100%;
+}
+
+#counter, #image-container, #button {
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+#counter {
+  position: fixed;
+  z-index: 3;
+  font-size: 2em;
+  top: 5%;
+
+  h3 {
+    padding: 8px;
+    font-weight: bold;
+    background-color: rgba(209, 228, 245, 0.85);
+    border-radius: 7px;
+  }
+}
+
+.content {
+  overflow: hidden;
+}
+
+#image-container {
+  z-index: 1;
+  width: 100%;
+
+  .imgBox {
+    width: 70%;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    word-break: break-word;
+    overflow: hidden;
+    vertical-align: middle;
+
+    .image-label, .imgCounter {
+      position: absolute;
+      display: block;
+      bottom: 5%;
+      left: 50%;
+      padding: 10px;
+      transform: translateX(-50%);
+      font: bold 1.5em 'Arial';
+      background-color: rgba(217, 217, 217, 0.76);
+      border-radius: 10px;
+    }
+
+    .imgCounter {
+      bottom: 82%;
+    }
+  }
+}
+
+//Size settings for larger Screens
+@media only screen and (min-width: 780px) {
+  #image-container .imgBox {
+    width: 50%;
+  }
+}
