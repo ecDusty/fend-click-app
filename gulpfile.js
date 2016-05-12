@@ -193,7 +193,6 @@ gulp.task('images-dev', function () {
   console.log(strt + 'Images for DEV' + end);
 
   return gulp.src(IMG_PATH)
-    .pipe(imgS())
     .pipe(gulp.dest(TEST_DIR));
 });
 

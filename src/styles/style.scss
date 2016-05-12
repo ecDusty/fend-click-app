@@ -15,19 +15,7 @@ body {
   left: 50%;
 }
 
-#counter {
-  position: fixed;
-  z-index: 3;
-  font-size: 2em;
-  top: 5%;
 
-  h3 {
-    padding: 8px;
-    font-weight: bold;
-    background-color: rgba(209, 228, 245, 0.85);
-    border-radius: 7px;
-  }
-}
 
 .content {
   overflow: hidden;
@@ -36,12 +24,15 @@ body {
 #image-container {
   z-index: 1;
   width: 100%;
+  height: 600px;
 
   .imgBox {
-    width: 70%;
+    width: 100%;
     vertical-align: middle;
-    display: inline-block;
-    position: relative;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     word-break: break-word;
     overflow: hidden;
     vertical-align: middle;
@@ -60,13 +51,18 @@ body {
 
     .imgCounter {
       bottom: 82%;
+      padding: 6px 12px;
     }
   }
-}
 
-//Size settings for larger Screens
-@media only screen and (min-width: 780px) {
-  #image-container .imgBox {
-    width: 50%;
+  .hidden {
+    opacity: 0;
+    z-index: 3;
+    left: -150%;
+  }
+
+  .active {
+    opacity: 100;
+    z-index: 4
   }
 }

@@ -1,4 +1,15 @@
 "use strict";
+//Bringing in the Fisher-Yates Array Shuffle Method. A great explanation and examples can be found here: https://bost.ocks.org/mike/shuffle/
+function shuffle(array) {
+  var m = array.length, t, i;
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+}
+
 //How many images would you like to produce on the screen?
 var numImgs = 5;
 
@@ -6,11 +17,24 @@ var numImgs = 5;
 var numImgsAvail = 5;
 var numImgsAvailCounter = 1;
 
-var counterBox = document.getElementById('counter');
-var imgCon = document.getElementById('image-container');
+//Array of Cat Names
+var catNames = [
+  'Whiskers',
+  'Buttons',
+  'Mr. Wilkinson',
+  'Bond James'
+];
+var catNameCounter = 0;
 
-imgCon.innerHTML = '';
+//Shuffle the Order of cat names. So that they  aren't always the same
+shuffle(catNames);
 
+//Create a container to hold all the Cat Instances of the cats
+var imgDisCon = document.createElement('div');
+imgDisCon.id = 'image-container';
+imgDisCon.innerHTML = '';
+
+//Creates all the Cat Instances and puts them into the imgDisCon
 for (var i = 0; i < numImgs; i++) {
   var v = i+1;
   var clicks = 0;
@@ -20,7 +44,7 @@ for (var i = 0; i < numImgs; i++) {
   var counter = document.createElement('h3');
   var imgsrc = 'images/image-' + numImgsAvailCounter + '.jpg';
 
-  imgBox.className = 'imgBox';
+  imgBox.className = 'imgBox hidden';
   imgBox.id = 'imgBox' + v;
 
   img.className = 'clicker-image';
@@ -28,30 +52,51 @@ for (var i = 0; i < numImgs; i++) {
   img.setAttribute('src', imgsrc);
 
   label.className = 'image-label';
-  label.textContent = 'Image ' + v;
+  label.textContent = catNames[catNameCounter];
 
   counter.id = 'img' + v;
   counter.className = 'imgCounter';
-  var counterID = 'img' + v;
   counter.innerHTML = 0;
 
   imgBox.appendChild(img);
   imgBox.appendChild(label);
   imgBox.appendChild(counter);
 
-  imgBox.addEventListener('click', (function (numClicks, countID) {
+  //Mouse interaction. Everytime an image is clicked, the counter goes up
+  imgBox.addEventListener('click', (function (countID) {
     return function () {
-      numClicks ++;
-      document.getElementById(countID).innerHTML = numClicks;
+      document.getElementById(countID).innerHTML ++;
     }
-  })(clicks, counterID));
+  })(counter.id));
 
+  //Keyboard interaction. Everytime a keyboard key is hit, the active image counter goes up
+  window.addEventListener('keydown', (function (countID) {
+    return function () {
+      if (document.getElementById(countID).parentElement.classList.contains('active')) {
+        console.log('Key has been hit' + countID);
+        document.getElementById(countID).innerHTML ++;
+      }
+    }
+  })(counter.id));
+
+  //If there are more Cat instances than cat images available. Start from the beginning of the image counter.
   if (numImgsAvailCounter < numImgsAvail) {
     numImgsAvailCounter++;
   } else {
     numImgsAvailCounter = 1;
   }
 
-  imgCon.appendChild(imgBox);
+  //If there are more Cat instances than cat Names available. Reshuffle the Cat Names array and start from the beginning of the list
+  if (catNameCounter < catNames.length-1) {
+    catNameCounter++;
+  } else {
+    catNameCounter = 0;
+    shuffle(catNames);
+  }
+
+  imgDisCon.appendChild(imgBox);
 }
 
+imgDisCon.firstChild.classList.toggle('active');
+imgDisCon.firstChild.classList.toggle('hidden');
+document.getElementById('display-container').appendChild(imgDisCon);
