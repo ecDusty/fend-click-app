@@ -245,6 +245,15 @@ gulp.task('clean', function () {
 });
 
 /*=====================
+=   Create Production =
+=      Ready Site     =
+=         Task        =
+=====================*/
+gulp.task('dist', ['html-dist', 'sass-dist', 'scripts-dist', 'images-dist'], function () {
+  console.log(strt + 'Distribution  folder Created' + end);
+});
+
+/*=====================
 =   Export Production =
 =      Ready Site     =
 =         Task        =
