@@ -10,19 +10,22 @@ function shuffle(array) {
   }
 }
 
-//How many images would you like to produce on the screen?
+//How many images would you like to produce to choose from?
 var numImgs = 5;
 
 //How many actual images are available?
 var numImgsAvail = 5;
 var numImgsAvailCounter = 1;
 
-//Array of Cat Names
+//Array of Cat Names. I constantly add to this everytime I edit the JavaScript File
 var catNames = [
   'Whiskers',
   'Buttons',
   'Mr. Wilkinson',
-  'Bond James'
+  'Bond James',
+  'Ms. Patterson',
+  'Kronk',
+  'Titan'
 ];
 var catNameCounter = 0;
 
@@ -30,12 +33,19 @@ var catNameCounter = 0;
 shuffle(catNames);
 
 //Create a container to hold all the Cat Instances of the cats
-var imgDisCon = document.createElement('div');
-imgDisCon.id = 'image-container';
-imgDisCon.innerHTML = '';
+var iDisCon = document.createElement('div');
+iDisCon.id = 'image-container';
+iDisCon.innerHTML = '';
 
-//Creates all the Cat Instances and puts them into the imgDisCon
+//Create a container for the menu item of each Cat Instance
+var mDisCon = document.createElement('div');
+mDisCon.id = 'menu-container';
+document.getElementById('menu').innerHTML = '';
+
+//Creates all the Cat Instances and puts them into the iDisCon
 for (var i = 0; i < numImgs; i++) {
+
+  //CREATE CAT INSTANCE
   var v = i+1;
   var clicks = 0;
   var imgBox = document.createElement('div');
@@ -44,20 +54,25 @@ for (var i = 0; i < numImgs; i++) {
   var counter = document.createElement('h3');
   var imgsrc = 'images/image-' + numImgsAvailCounter + '.jpg';
 
-  imgBox.className = 'imgBox hidden';
+  //Add needed ID & Class to the Cat Instance container
+  imgBox.className = 'imgBox';
   imgBox.id = 'imgBox' + v;
 
+  //Sets up the Cat Image
   img.className = 'clicker-image';
   img.setAttribute('alt', ('Clicker Image ' + v + ', Hong Kong Web developer'));
   img.setAttribute('src', imgsrc);
 
+  //Creates a Name for the Cat Instance
   label.className = 'image-label';
   label.textContent = catNames[catNameCounter];
 
+  //Creates the counter for the Cat Instance
   counter.id = 'img' + v;
   counter.className = 'imgCounter';
   counter.innerHTML = 0;
 
+  //Puts the image, label, and counter into its specific Cat Instance Container
   imgBox.appendChild(img);
   imgBox.appendChild(label);
   imgBox.appendChild(counter);
@@ -72,11 +87,34 @@ for (var i = 0; i < numImgs; i++) {
   //Keyboard interaction. Everytime a keyboard key is hit, the active image counter goes up
   window.addEventListener('keydown', (function (countID) {
     return function () {
-      if (document.getElementById(countID).parentElement.classList.contains('active')) {
-        console.log('Key has been hit' + countID);
+      if (document.getElementById(countID).parentElement.classList.contains('active'))
         document.getElementById(countID).innerHTML ++;
-      }
     }
+  })(counter.id));
+
+  //CREATE MENU ITEM
+  var menuItem = document.createElement('div');
+  var menuImg = document.createElement('img');
+
+  //Setup img element for the menu button
+  menuImg.className = 'menu-item-image';
+  menuImg.setAttribute('alt', ('Menu Item Image ' + v + ', Hong Kong Web developer'));
+  menuImg.setAttribute('src', imgsrc);
+
+  menuItem.appendChild(menuImg);
+
+
+
+  //Clicking A Menu Item will show the corresponding Cat Instance
+  menuItem.addEventListener('click', (function (countID) {
+    return function () {
+      if (!document.getElementById(countID).parentElement.classList.contains('active')) {
+        //Hide the currently active Instance
+        document.getElementsByClassName('active')[0].classList.toggle('active');
+        //Show the selected Instance
+        document.getElementById(countID).parentElement.classList.toggle('active');
+      }
+    };
   })(counter.id));
 
   //If there are more Cat instances than cat images available. Start from the beginning of the image counter.
@@ -93,10 +131,32 @@ for (var i = 0; i < numImgs; i++) {
     catNameCounter = 0;
     shuffle(catNames);
   }
-
-  imgDisCon.appendChild(imgBox);
+  mDisCon.appendChild(menuItem);
+  iDisCon.appendChild(imgBox);
 }
 
-imgDisCon.firstChild.classList.toggle('active');
-imgDisCon.firstChild.classList.toggle('hidden');
-document.getElementById('display-container').appendChild(imgDisCon);
+iDisCon.firstChild.classList.toggle('active');
+document.getElementById('menu').appendChild(mDisCon);
+document.getElementById('display-container').appendChild(iDisCon);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

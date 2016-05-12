@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="styles/style.css">
+<!--    <link rel="stylesheet" href="styles/style.css">-->
   </head>
   <body>
     <header id="menu" class="menu">
       <p>Menu</p>
     </header>
-    <div id="display-container" class="container content">
-<!--
-      <div id="image-container">
+    <div id="display-container" class="container">
+<!--  <div id="image-container">
 FOR REFERENCE
         <div id="imgBox%id%" class="imgBox">%data%</div>
           <img class="clicker-image" src="%src%" alt="%alt%"> //CAT IMAGE
@@ -19,10 +18,21 @@ FOR REFERENCE
           <h3 id="img%id%">%data%</h3> //COUNTER
         </div>
 
-      </div>
--->
+      </div>-->
     </div>
     <footer></footer>
+    <script>
+      var cbCSS = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'styles/style.css';
+        var h = document.getElementsByTagName('head')[0];
+        h.parentNode.appendChild(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+        webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cbCSS);
+      else window.addEventListener('load', cbCSS);
+    </script>
     <script src="js/all.js"></script>
   </body>
 </html>

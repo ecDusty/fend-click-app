@@ -15,10 +15,18 @@ body {
   left: 50%;
 }
 
-
-
 .content {
   overflow: hidden;
+}
+
+#menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  width: 30px;
+  background: purple;
 }
 
 #image-container {
@@ -31,11 +39,19 @@ body {
     vertical-align: middle;
     display: block;
     position: absolute;
-    left: 50%;
+    left: -150%;
     transform: translateX(-50%);
     word-break: break-word;
     overflow: hidden;
-    vertical-align: middle;
+    opacity: 0;
+    z-index: 3;
+    max-height: 620px;
+
+    img {
+      display: block;
+      position: relative;
+      width: 110%;
+    }
 
     .image-label, .imgCounter {
       position: absolute;
@@ -45,24 +61,22 @@ body {
       padding: 10px;
       transform: translateX(-50%);
       font: bold 1.5em 'Arial';
-      background-color: rgba(217, 217, 217, 0.76);
+      background-color: rgba(214, 214, 214, 0.76);
       border-radius: 10px;
     }
 
     .imgCounter {
       bottom: 82%;
       padding: 6px 12px;
+      Background-color: rgba(152, 188, 230, 0.76);
+      top: 15px;
+      bottom: auto;
     }
-  }
-
-  .hidden {
-    opacity: 0;
-    z-index: 3;
-    left: -150%;
   }
 
   .active {
     opacity: 100;
-    z-index: 4
+    z-index: 4;
+    left: 50%;
   }
 }
