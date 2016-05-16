@@ -1,9 +1,9 @@
 @import "./reset/basic-reset";
 
-body {
-  background-color: #e6e6e6;
-  border: 0.5px orange dotted;
-}
+//body {
+//  background-color: #e6e6e6;
+//  border: 0.5px orange dotted;
+//}
 
 .container {
   width: 100%;
@@ -15,9 +15,9 @@ body {
   left: 50%;
 }
 
-.content {
-  overflow: hidden;
-}
+//.content {
+//  overflow: hidden;
+//}
 
 #menu {
   position: fixed;
@@ -25,8 +25,18 @@ body {
   bottom: 0;
   top: 0;
   z-index: 10;
-  width: 30px;
+  max-width: 140px;
+  width: 10%;
+  min-width: 70px;
   background: purple;
+
+  #menu-title {
+    margin: 10px;
+    border-radius: 2px;
+    background-color: rgba(255, 216, 255, 0.61);
+    text-transform: uppercase;
+    font: bold 1em;
+  }
 }
 
 #image-container {
@@ -42,7 +52,7 @@ body {
     left: -150%;
     transform: translateX(-50%);
     word-break: break-word;
-    overflow: hidden;
+//    overflow: hidden;
     opacity: 0;
     z-index: 3;
     max-height: 620px;
@@ -77,6 +87,6 @@ body {
   .active {
     opacity: 100;
     z-index: 4;
-    left: 50%;
+    left: 55%;
   }
 }

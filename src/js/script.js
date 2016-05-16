@@ -11,10 +11,10 @@ function shuffle(array) {
 }
 
 //How many images would you like to produce to choose from?
-var numImgs = 5;
+var numImgs = 6;
 
 //How many actual images are available?
-var numImgsAvail = 5;
+var numImgsAvail = 6;
 var numImgsAvailCounter = 1;
 
 //Array of Cat Names. I constantly add to this everytime I edit the JavaScript File
@@ -22,7 +22,7 @@ var catNames = [
   'Whiskers',
   'Buttons',
   'Mr. Wilkinson',
-  'Bond James',
+  'James Bond',
   'Ms. Patterson',
   'Kronk',
   'Titan'
@@ -41,6 +41,12 @@ iDisCon.innerHTML = '';
 var mDisCon = document.createElement('div');
 mDisCon.id = 'menu-container';
 document.getElementById('menu').innerHTML = '';
+
+var mTitle = document.createElement('h2');
+mTitle.id = 'menu-title';
+mTitle.innerHTML = 'MENU';
+
+mDisCon.appendChild(mTitle);
 
 //Creates all the Cat Instances and puts them into the iDisCon
 for (var i = 0; i < numImgs; i++) {
