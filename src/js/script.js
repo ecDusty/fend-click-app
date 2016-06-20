@@ -11,7 +11,7 @@ function shuffle(array) {
 }
 
 //How many images would you like to produce to choose from?
-var numImgs = 6;
+var numImgs = 50;
 
 //How many actual images are available?
 var numImgsAvail = 6;

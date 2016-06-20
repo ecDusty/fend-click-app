@@ -22,7 +22,7 @@
 
 /*==========================================
 =                  The Menu                =
-==========================================*/
+===========================================*/
 
 #menu {
   position: fixed;
@@ -34,6 +34,8 @@
   width: 10%;
   min-width: 70px;
   background: purple;
+  overflow-y: auto;
+  max-height: 600px;
 
   #menu-title {
     margin: 10px;
@@ -49,32 +51,29 @@
 =            The Cat Instances Image       =
 ==========================================*/
 #image-container {
+  position: fixed;
   z-index: 1;
   width: 100%;
   height: 600px;
+  left: 50%;
+  overflow: hidden;
 
   .imgBox {
-    width: 100%;
-    vertical-align: middle;
+    width: 10%;
     display: block;
     position: absolute;
-    left: -150%;
     transform: translateX(-50%);
     word-break: break-word;
-//    overflow: hidden;
+    overflow: hidden;
     opacity: 0;
-    z-index: 3;
-    max-height: 620px;
+    z-index: -1;
 
     img {
-      display: block;
-      position: relative;
-      width: 110%;
+      width: 100%;
     }
 
     .image-label, .imgCounter {
-      position: absolute;
-      display: block;
+      position: fixed;
       bottom: 5%;
       left: 50%;
       padding: 10px;
@@ -96,6 +95,7 @@
   .active {
     opacity: 100;
     z-index: 4;
-    left: 55%;
+    width: 100%;
+    left: 50%;
   }
 }

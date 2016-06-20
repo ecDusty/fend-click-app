@@ -1,6 +1,6 @@
 # Udacity FEND - Cat Clicker Project
 
-Welcome to _Dusty's_ Cat Clicker. This was created from scratch. During the build process I believed it would be more realistic if the Portfolio refects the actual work that I have done. So my goal is to optimize the sites already attached to the Mob Portfolio and then add my own to the portfolio list.
+Welcome to _Dusty's_ Cat Clicker. This was created from scratch.
 
 I got a little carried away with the design layout.
 

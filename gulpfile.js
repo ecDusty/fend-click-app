@@ -208,7 +208,10 @@ gulp.task('serve:dist', function() {
   gulp.watch(IMG_PATH, ['images-dist']);
 
   browserSync.init({
-    server:'./dist/'
+    server: {
+      baseDir: './dist/',
+      domain: 'local.dev'
+    }
   });
 
   gulp.watch(['dist/{*.html,**/*.html}', 'dist/**/*.css', 'dist/**/*.js', 'dist/**/images/*.{png,jpeg,jpg,gif,svg}']).on('change', browserSync.reload);
@@ -226,7 +229,10 @@ gulp.task('serve:dev', function() {
   gulp.watch(IMG_PATH, ['images-dev']);
 
   browserSync.init({
-    server:'./test/'
+    server: {
+      baseDir: './test/',
+      domain: 'local.dev'
+    }
   });
 
   gulp.watch(['test/{*.html,**/*.html}', 'test/**/*.css', 'test/**/*.js', 'test/**/images/*.{png,jpeg,jpg,gif,svg}']).on('change', browserSync.reload);
