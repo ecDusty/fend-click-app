@@ -256,7 +256,7 @@ gulp.task('clean', function () {
 =         Task        =
 =====================*/
 gulp.task('dist', ['html-dist', 'sass-dist', 'scripts-dist', 'images-dist'], function () {
-  console.log(strt + 'Distribution  folder Created' + end);
+  console.log('>---- Distribution  folder Created ----<');
 });
 
 /*=====================
