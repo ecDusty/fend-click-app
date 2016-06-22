@@ -3,10 +3,10 @@
 body {
   overflow: hidden;
 }
-//
-//.container {
-////  width: 100%;
-//}
+
+img {
+  cursor: pointer;
+}
 
 #counter, #image-container, #button {
   position: relative;
@@ -14,18 +14,15 @@ body {
   left: 50%;
 }
 
-//.content {
-//  overflow: hidden;
-//}
-
 
 /*==========================================
 =                  The Menu                =
 ===========================================*/
 
 #menu::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
+
 #menu {
   position: fixed;
   left: 0;
