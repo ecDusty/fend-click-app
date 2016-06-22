@@ -1,13 +1,12 @@
 @import "./reset/basic-reset";
 
-//body {
-//  background-color: #e6e6e6;
-//  border: 0.5px orange dotted;
-//}
-
-.container {
-  width: 100%;
+body {
+  overflow: hidden;
 }
+//
+//.container {
+////  width: 100%;
+//}
 
 #counter, #image-container, #button {
   position: relative;
@@ -24,18 +23,22 @@
 =                  The Menu                =
 ===========================================*/
 
+#menu::-webkit-scrollbar {
+    display: none;
+}
 #menu {
   position: fixed;
   left: 0;
   bottom: 0;
   top: 0;
   z-index: 10;
-  max-width: 140px;
+  max-width: 106px;
   width: 10%;
   min-width: 70px;
   background: purple;
-  overflow-y: auto;
   max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   #menu-title {
     margin: 10px;
@@ -54,6 +57,7 @@
   position: fixed;
   z-index: 1;
   width: 100%;
+  max-width: 903px;
   height: 600px;
   left: 50%;
   overflow: hidden;
@@ -99,3 +103,5 @@
     left: 50%;
   }
 }
+
+
