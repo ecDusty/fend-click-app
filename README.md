@@ -25,24 +25,24 @@ Pick which ever tool you find works best for you, but for my project, Gulp is us
 As I develope on a Windows machine, these instructions are for windows users, but for the most part I believe they should work on Mac's as well as I use Git's Bash command line (Instead of PowerShell).
 
 1. Install npm on your machine
-    * The simplest way of doing this is installing [Node JS]
+	* The simplest way of doing this is installing [Node JS]
 
 2. Install Gulp Globally - _using command line_
-    * Make sure to include the '-g' flag. This tells npm to install it globally.
-    ```sh
-    $ npm install gulp -g
-    ```
+	* Make sure to include the '-g' flag. This tells npm to install it globally.
+	```sh
+	$ npm install gulp -g
+	```
 
 3. Run npm install program - _using command line_
   * As you have already downloaded my project, you have my **package.json** file, which has a list of all the dependencies and devdependencies needed for the project. By running 'npm install', your tell npm to run it's 'install' package on all the dependencies & devdependencies located within the package.json file
   * This is quicker than installing each gulp package required seperately
-    ```sh
-    $ npm install
-    ```
-      *Small side note, gulp-eslint doesn't always install correctly. You may have to install it a second time to make sure.
-      ```sh
-      $npm install gulp-eslint
-      ```
+	```sh
+	$ npm install
+	```
+	  *Small side note, gulp-eslint doesn't always install correctly. You may have to install it a second time to make sure.
+	  ```sh
+	  $npm install gulp-eslint
+	  ```
 
 4. Start testing your website
   * Just run gulp. This will create the test version of your site within the 'test' folder and start the local server.
@@ -81,7 +81,7 @@ As I develope on a Windows machine, these instructions are for windows users, bu
 ## The TO-DO List
 
 1. Make a hamberger mobile menu
-    * Not part of the project guidelines but it's good practice!
+	* Not part of the project guidelines but it's good practice!
 
 [GO-CSS]: <https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery> "Google's Optimized CSS Delivery"
 [GitHub Pages]: <https://pages.github.com/> "GitHub hosting solution GitHub Pages"
