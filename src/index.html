@@ -10,10 +10,10 @@
   </head>
   <body>
   <header id="menu" class="menu">
-    <h2 id="menu-title">Menu</h2><!--The Menu Title-->
+    <h2 id="menu-title"></h2><!--The Menu Title-->
     <div id="menu-container"><!--Container that holds all the menu items-->
-      <div class="menu-item"><!---->
-        <img class="menu-item-image" src="" alt=""><!---->
+      <div class="menu-item"><!--IMG Wrapper-->
+        <img class="menu-item-image" src="" alt=""><!--Menu Item Image-->
       </div>
     </div>
   </header>
@@ -21,12 +21,41 @@
       <div id="image-container">
         <div id="cat" class="imgBox active"><!--%data%-->
           <img id="cat-img" class="clicker-image" src="" alt="%alt%" /> <!--//CAT IMAGE-->
-          <h4 id="cat-name" class="image-label">Image %data%</h4><!-- //CAT NAME-->
-          <h3 id="cat-count" class="imgCounter">%data%</h3> <!--//COUNTER-->
+          <h4 id="cat-name" class="image-label"></h4><!-- //CAT NAME-->
+          <h3 id="cat-count" class="imgCounter"></h3> <!--//COUNTER-->
         </div>
       </div>
     </div>
-  <footer>
+  <footer id="settings">
+    <div id="admin-btn" class="button">
+      <h3>Admin</h3>
+    </div>
+    <div id="adForm">
+      <div class="catName">
+        <p>Cat Name</p>
+        <input type="text" id="newCatName">
+      </div>
+      <div class="catImg">
+        <div class="conImgAvail">
+          <p>Images Available:</p>
+          <span id="imgsAvail"></span>
+        </div>
+        <div class="newImgLine">
+          <p>Image:</p>
+          <input type="text" id="newImgSrc" name="Image Name">
+        </div>
+      </div>
+      <div class="catCount">
+        <div class="conCatCount">
+          <p>Num of Clicks:</p>
+          <input type="text" id="newCatCount" name="# of Clicks">
+        </div>
+      </div>
+      <div class="buttons">
+        <div id="Confirm" class="button">Confirm</div>
+        <div id="Cancel" class="button">Cancle</div>
+      </div>
+    </div>
   </footer>
   <script>
     var cbCSS = function() {

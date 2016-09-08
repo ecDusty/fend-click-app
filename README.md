@@ -78,6 +78,7 @@ As I develope on a Windows machine, these instructions are for windows users, bu
   Cat Picture 5: https://www.flickr.com/photos/crerwin/1090235720/in/photolist-fpoqBx-2EkK6A-jd89Zh-oXYAc3-rbR7a7-eQyQ9s-pNfUb3-f8Lzve-7wUUmJ-neyNMh-fF1SNo-guvpL7-djzdoC-rRUeFg-dwECB4-byETEf-96GXNo-nD8t86-i3Px3A-eSjzEX-e8hn6f-u4ANKb-aj5nzB-bCywUs-7CnHSG-amRMr6-gsgu54-sBnYXd-doMGnr-rjNQrb-7xQDb4-e5tZLn-swMbdu-aVfJNM-bwJzGz-f3mWZv-qAudKg-76Vzfm-kb2n93-4BignY-96GXk5-hoYTLY-pLcapW-r6ud1t-qd3RjQ-4rPruQ-nF4Ynj-9oXBFj-5hJtCy-fJ6ud6
   Cat Picture 6: https://www.flickr.com/photos/jetske
   Cat Picture 7: https://www.flickr.com/photos/8494589@N06/2177097057
+  Cat Picture 8: https://www.flickr.com/photos/deerwooduk/579761138
 
 
 ## The TO-DO List

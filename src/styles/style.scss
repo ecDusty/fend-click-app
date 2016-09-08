@@ -1,17 +1,18 @@
 @import "./reset/basic-reset";
 
 body {
-	overflow: hidden;
+  overflow: hidden;
 }
 
-img {
-	cursor: pointer;
+img, .button {
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 #counter, #image-container, #button {
-	position: relative;
-	transform: translateX(-50%);
-	left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
 }
 
 
@@ -20,82 +21,106 @@ img {
 ===========================================*/
 
 #menu::-webkit-scrollbar {
-	display: none;
+  //display: none;
 }
 
 #menu {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	top: 0;
-	z-index: 10;
-	max-width: 106px;
-	width: 10%;
-	min-width: 70px;
-	background: purple;
-	max-height: 600px;
-	overflow-x: hidden;
-	overflow-y: auto;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  max-width: 106px;
+  width: 10%;
+  min-width: 70px;
+  background: purple;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
 
-	#menu-title {
-	margin: 10px;
-	border-radius: 2px;
-	background-color: rgba(255, 216, 255, 0.61);
-	text-transform: uppercase;
-	font: bold 1em;
-	}
+  #menu-title {
+  margin: 10px;
+  border-radius: 2px;
+  background-color: rgba(255, 216, 255, 0.61);
+  text-transform: uppercase;
+  font: bold 1em;
+  }
 }
 
+
+/*==========================================
+=            The Footer Menu               =
+==========================================*/
+
+footer {
+  position: fixed;
+  width: 100%;
+  z-index: 11;
+  transform:translateY(95vh);
+
+
+  #admin-btn {
+    background: darkgreen;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 100px;
+    margin-bottom: 15px;
+  }
+}
+
+footer.open {
+    transform: translateY(50vh);
+  }
 
 /*==========================================
 =            The Cat Instances Image       =
 ==========================================*/
 #image-container {
-	position: fixed;
-	z-index: 1;
-	width: 100%;
-	max-width: 903px;
-	height: 600px;
-	left: 50%;
-	overflow: hidden;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  max-width: 903px;
+  height: 600px;
+  left: 50%;
+  overflow: hidden;
 
-	.imgBox {
-			width: 10%;
-			display: block;
-			position: absolute;
-			transform: translateX(-50%);
-			word-break: break-word;
-			overflow: hidden;
-			opacity: 0;
-			z-index: -1;
-			max-height: 600px;
+  .imgBox {
+      width: 10%;
+      display: block;
+      position: absolute;
+      transform: translateX(-50%);
+      word-break: break-word;
+      overflow: hidden;
+      opacity: 0;
+      z-index: -1;
+      max-height: 600px;
 
-	.image-label, .imgCounter {
-		position: fixed;
-		bottom: 5%;
-		left: 50%;
-		padding: 10px;
-		transform: translateX(-50%);
-		font: bold 1.5em 'Arial';
-		background-color: rgba(214, 214, 214, 0.76);
-		border-radius: 10px;
-	}
+  .image-label, .imgCounter {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    padding: 10px;
+    transform: translateX(-50%);
+    font: bold 1.5em 'Arial';
+    background-color: rgba(214, 214, 214, 0.76);
+    border-radius: 10px;
+  }
 
-	.imgCounter {
-		bottom: 82%;
-		padding: 6px 12px;
-		Background-color: rgba(152, 188, 230, 0.76);
-		top: 15px;
-		bottom: auto;
-	}
-	}
+  .imgCounter {
+    bottom: 82%;
+    padding: 6px 12px;
+    Background-color: rgba(152, 188, 230, 0.76);
+    top: 15px;
+    bottom: auto;
+  }
+  }
 
-	.active {
-	opacity: 100;
-	z-index: 4;
-	width: 100%;
-	left: 50%;
-	}
+  .active {
+  opacity: 100;
+  z-index: 4;
+  width: 100%;
+  left: 50%;
+  }
 }
 
 

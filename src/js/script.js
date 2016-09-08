@@ -13,43 +13,50 @@ var model = {
     {
       clickCntr: 0,
       name: '',
-      imgSrc: '/images/image-1.jpg',
+      imgSrc: 'image-1',
       imgAttribution: 'https://www.flickr.com/photos/poplinre/625069434/in/photostream/'
     },
     {
       clickCntr: 0,
       name: '',
-      imgSrc: '/images/image-2.jpg',
+      imgSrc: 'image-2',
       imgAttribution: 'https://www.flickr.com/photos/chewie/2290467335'
     },
     {
       clickCntr: 0,
       name: '',
-      imgSrc: '/images/image-3.jpg',
+      imgSrc: 'image-3',
       imgAttribution: 'https://www.flickr.com/photos/dmzhuk1/13336297525/'
     },
     {
       clickCntr: 0,
       name: '',
-      imgSrc: '/images/image-4.jpg',
+      imgSrc: 'image-4',
       imgAttribution: 'https://www.flickr.com/photos/haituoi/12174748174/'
     },
     {
       clickCntr: 0,
       name: '',
-      imgSrc: '/images/image-5.jpg',
+      imgSrc: 'image-5',
       imgAttribution: 'https://www.flickr.com/photos/crerwin/1090235720/in/photolist-fpoqBx-2EkK6A-jd89Zh-oXYAc3-rbR7a7-eQyQ9s-pNfUb3-f8Lzve-7wUUmJ-neyNMh-fF1SNo-guvpL7-djzdoC-rRUeFg-dwECB4-byETEf-96GXNo-nD8t86-i3Px3A-eSjzEX-e8hn6f-u4ANKb-aj5nzB-bCywUs-7CnHSG-amRMr6-gsgu54-sBnYXd-doMGnr-rjNQrb-7xQDb4-e5tZLn-swMbdu-aVfJNM-bwJzGz-f3mWZv-qAudKg-76Vzfm-kb2n93-4BignY-96GXk5-hoYTLY-pLcapW-r6ud1t-qd3RjQ-4rPruQ-nF4Ynj-9oXBFj-5hJtCy-fJ6ud6'
     },
     {
       clickCntr: 0,
       name: '',
-      imgSrc: '/images/image-6.jpg',
+      imgSrc: 'image-6',
       imgAttribution: 'https://www.flickr.com/photos/jetske'
-    }, {
+    },
+    {
       clickCntr: 0,
       name: '',
-      imgSrc: '/images/image-7.jpg',
+      imgSrc: 'image-7',
       imgAttribution: 'https://www.flickr.com/photos/8494589@N06/2177097057'
+    },
+    {
+      clickCntr: 0,
+      name: '',
+      imgSrc: 'image-8',
+      imgAttribution: 'https://www.flickr.com/photos/deerwooduk/579761138'
     }
   ],
 
@@ -62,6 +69,17 @@ var model = {
     'Kronk',
     'Titan',
     'Tims Pennyworth'
+  ],
+
+  catImgs: [
+    'image-1',
+    'image-2',
+    'image-3',
+    'image-4',
+    'image-5',
+    'image-6',
+    'image-7',
+    'image-8'
   ],
 
   //Bringing in the Fisher-Yates Array Shuffle Method. A great explanation and examples can be found here: https://bost.ocks.org/mike/shuffle/
@@ -91,12 +109,15 @@ var octopus = {
         model.currentCat = model.cats[0];
 
         model.arrayShuffle(model.catNames);
+        model.arrayShuffle(model.catImgs);
         for (var i = 0; i < model.cats.length;i++) {
           model.cats[i].name = model.catNames[i];
+          model.cats[i].imgSrc = model.catImgs[i];
         }
         // tell our views to initialize
         catListView.init();
         catView.init();
+        catAdminView.init();
     },
 
     getCurrentCat: function() {
@@ -150,7 +171,7 @@ var catView = {
         var currentCat = octopus.getCurrentCat();
         this.countElem.textContent = currentCat.clickCntr;
         this.catNameElem.textContent = currentCat.name;
-        this.catImageElem.src = currentCat.imgSrc;
+        this.catImageElem.src = '/images/' + currentCat.imgSrc + '.jpg';
     }
 };
 
@@ -194,7 +215,7 @@ var catListView = {
 
             img = document.createElement('img');
             img.className = 'menu-item-image';
-            img.setAttribute('src', cat.imgSrc);
+            img.setAttribute('src', '/images/' + cat.imgSrc + '.jpg');
             img.setAttribute('alt', 'Menu Item Image ' + i + ', Hong Kong Web developer');
 
             elem.appendChild(img);
@@ -213,6 +234,24 @@ var catListView = {
             this.catListElem.appendChild(elem);
         }
     }
+};
+
+var catAdminView = {
+  init: function() {
+    // Grab the element by
+    this.adminElem = document.getElementById('settings');
+
+    // Render this view (update the DOM elements with the right values)
+    this.render();
+  },
+
+  render: function () {
+    var adminBtn = document.getElementById('admin-btn');
+    adminBtn.addEventListener('click', function () {
+      console.log('Clicked Admin Button: ' + this);
+      adminBtn.parentElement.classList.toggle('open')
+    });
+  }
 };
 
 // Lets run our Octopus (And App)!
