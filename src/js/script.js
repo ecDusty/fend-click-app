@@ -104,40 +104,48 @@ var model = {
 
 var octopus = {
 
-    init: function() {
-        // set our current cat to the first one in the list
-        model.currentCat = model.cats[0];
+  init: function() {
+    // set our current cat to the first one in the list
+    model.currentCat = model.cats[0];
 
-        model.arrayShuffle(model.catNames);
-        model.arrayShuffle(model.catImgs);
-        for (var i = 0; i < model.cats.length;i++) {
-          model.cats[i].name = model.catNames[i];
-          model.cats[i].imgSrc = model.catImgs[i];
-        }
-        // tell our views to initialize
-        catListView.init();
-        catView.init();
-        catAdminView.init();
-    },
-
-    getCurrentCat: function() {
-        return model.currentCat;
-    },
-
-    getCats: function() {
-        return model.cats;
-    },
-
-    // set the currently-selected cat to the object passed in
-    setCurrentCat: function(cat) {
-        model.currentCat = cat;
-    },
-
-    // increments the counter for the currently-selected cat
-    incrementCounter: function() {
-        model.currentCat.clickCntr++;
-        catView.render();
+    model.arrayShuffle(model.catNames);
+    model.arrayShuffle(model.catImgs);
+    for (var i = 0; i < model.cats.length;i++) {
+      model.cats[i].name = model.catNames[i];
+      model.cats[i].imgSrc = model.catImgs[i];
     }
+    // tell our views to initialize
+    catListView.init();
+    catView.init();
+    catAdminView.init();
+  },
+
+  getCurrentCat: function() {
+    return model.currentCat;
+  },
+
+  getCats: function() {
+    return model.cats;
+  },
+
+  // set the currently-selected cat to the object passed in
+  setCurrentCat: function(cat) {
+    model.currentCat = cat;
+  },
+
+  // increments the counter for the currently-selected cat
+  incrementCounter: function() {
+    model.currentCat.clickCntr++;
+    catView.render();
+  },
+
+  setCatCounter: function(cat, num) {
+    cat.clickCntr = num;
+  },
+
+  getImageList: function() {
+    return model.catImgs;
+  }
 };
 
 
@@ -150,90 +158,89 @@ var octopus = {
 
 var catView = {
 
-    init: function() {
-        // store pointers to our DOM elements for easy access later
-        this.catElem = document.getElementById('cat');
-        this.catNameElem = document.getElementById('cat-name');
-        this.catImageElem = document.getElementById('cat-img');
-        this.countElem = document.getElementById('cat-count');
+  init: function() {
+      // store pointers to our DOM elements for easy access later
+      this.catElem = document.getElementById('cat');
+      this.catNameElem = document.getElementById('cat-name');
+      this.catImageElem = document.getElementById('cat-img');
+      this.countElem = document.getElementById('cat-count');
 
-        // on click, increment the current cat's counter
-        this.catImageElem.addEventListener('click', function(){
-            octopus.incrementCounter();
-        });
+      // on click, increment the current cat's counter
+      this.catImageElem.addEventListener('click', function(){
+          octopus.incrementCounter();
+      });
 
-        // render this view (update the DOM elements with the right values)
-        this.render();
-    },
+      // render this view (update the DOM elements with the right values)
+      this.render();
+  },
 
-    render: function() {
-        // update the DOM elements with values from the current cat
-        var currentCat = octopus.getCurrentCat();
-        this.countElem.textContent = currentCat.clickCntr;
-        this.catNameElem.textContent = currentCat.name;
-        this.catImageElem.src = '/images/' + currentCat.imgSrc + '.jpg';
-    }
+  render: function() {
+      // update the DOM elements with values from the current cat
+      var currentCat = octopus.getCurrentCat();
+      this.countElem.textContent = currentCat.clickCntr;
+      this.catNameElem.textContent = currentCat.name;
+      this.catImageElem.src = '/images/' + currentCat.imgSrc + '.jpg';
+  }
 };
 
 var catListView = {
 
-    init: function() {
-        // store the DOM element for easy access later
-        this.catListElem = document.getElementById('menu');
+  init: function() {
+      // store the DOM element for easy access later
+      this.catListElem = document.getElementById('menu');
 
-        // render this view (update the DOM elements with the right values)
-        this.render();
-    },
+      // render this view (update the DOM elements with the right values)
+      this.render();
+  },
 
-    render: function() {
-        var cat, elem, img, i;
-        // get the cats we'll be rendering from the octopus
-        var cats = octopus.getCats();
+  render: function() {
+    var cat, elem, img, i;
+    // get the cats we'll be rendering from the octopus
+    var cats = octopus.getCats();
 
-        // empty the cat list
-        this.catListElem.innerHTML = '';
+    // empty the cat list
+    this.catListElem.innerHTML = '';
 
-        // Create a Title for the Menu
-        var mTitle = document.createElement('h2');
-        mTitle.id = 'menu-title';
-        mTitle.innerHTML = 'MENU';
+    // Create a Title for the Menu
+    var mTitle = document.createElement('h2');
+    mTitle.id = 'menu-title';
+    mTitle.innerHTML = 'MENU';
 
-        this.catListElem.appendChild(mTitle);
+    this.catListElem.appendChild(mTitle);
 
-        // Create container for menu items
-        var mCon = document.createElement('div');
-        mCon.id = 'menu-container';
+    // Create container for menu items
+    var mCon = document.createElement('div');
+    mCon.id = 'menu-container';
 
-        // Loop over the cats, and add to menu items
-        for (i = 0; i < cats.length; i++) {
-            // this is the cat we're currently looping over
-            cat = cats[i];
+    // Loop over the cats, and add to menu items
+    for (i = 0; i < cats.length; i++) {
+        // this is the cat we're currently looping over
+      cat = cats[i];
 
-            // make a new cat list item and set its Image
-            elem = document.createElement('div');
-            elem.className = 'menu-item';
+      // make a new cat list item and set its Image
+      elem = document.createElement('div');
+      elem.className = 'menu-item';
 
-            img = document.createElement('img');
-            img.className = 'menu-item-image';
-            img.setAttribute('src', '/images/' + cat.imgSrc + '.jpg');
-            img.setAttribute('alt', 'Menu Item Image ' + i + ', Hong Kong Web developer');
+      img = document.createElement('img');
+      img.className = 'menu-item-image';
+      img.setAttribute('src', '/images/' + cat.imgSrc + '.jpg');
+      img.setAttribute('alt', 'Menu Item Image ' + i + ', Hong Kong Web developer');
 
-            elem.appendChild(img);
-            // on click, setCurrentCat and render the catView
-            // (this uses our closure-in-a-loop trick to connect the value
-            //  of the cat variable to the click event function)
-            elem.addEventListener('click', (function(catCopy) {
-                return function() {
-                    octopus.setCurrentCat(catCopy);
-                    catView.render();
-                  console.log('This cat element' + catCopy);
-                };
-            })(cat));
+      elem.appendChild(img);
+      // on click, setCurrentCat and render the catView
+      // (this uses our closure-in-a-loop trick to connect the value
+      //  of the cat variable to the click event function)
+      elem.addEventListener('click', (function(catCopy) {
+        return function() {
+          octopus.setCurrentCat(catCopy);
+          catView.render();
+        };
+      })(cat));
 
-            // finally, add the element to the list
-            this.catListElem.appendChild(elem);
-        }
+      // finally, add the element to the list
+      this.catListElem.appendChild(elem);
     }
+  }
 };
 
 var catAdminView = {
@@ -245,11 +252,82 @@ var catAdminView = {
     this.render();
   },
 
-  render: function () {
-    var adminBtn = document.getElementById('admin-btn');
-    adminBtn.addEventListener('click', function () {
-      console.log('Clicked Admin Button: ' + this);
-      adminBtn.parentElement.classList.toggle('open')
+  render: function() {
+    // Grab all the parts of the Form
+    var adminBtn = document.getElementById('admin-btn'),
+        cancelBtn = document.getElementById('Cancel'),
+        confirmBtn = document.getElementById('Confirm'),
+        settings = document.getElementById('settings'),
+        newName = document.getElementById('newCatName'),
+        newImg = document.getElementById('newImgSrc'),
+        newCount = document.getElementById('newCatCount'),
+        availImgList = document.getElementById('imgsAvail');
+
+    // Add event listener which will see it any of the buttons in the settings panel were clicked
+    settings.addEventListener('click', function (e) {
+      var cTarget = e.target,
+          curCat = octopus.getCurrentCat();
+
+      // Check to make sure the image inputed is available
+      var catImgs = octopus.getImageList();
+      var imgAvail = false;
+
+      // Toggle if Settings should show
+      if (cTarget == adminBtn || cTarget == cancelBtn || cTarget == confirmBtn) {
+        adminBtn.parentElement.classList.toggle('open');
+      }
+
+      // What happens when confirm button is clicked
+      if (cTarget == confirmBtn) {
+        newImg.value = newImg.value.toLowerCase();
+        for (var i = 0; i < catImgs.length; i++) {
+          if (catImgs[i] == newImg.value)
+            imgAvail = true;
+        }
+
+        // If the image is available, set it, if not give user an alert
+        if (imgAvail == true) {
+          curCat.imgSrc = newImg.value;
+        } else {
+          alert('Please make sure to use an image that is available!');
+          adminBtn.parentElement.classList.toggle('open');
+        }
+
+        // Check and make sure a number has been used with the counter
+        if (!isNaN(newCount.value)) {
+          curCat.clickCntr = newCount.value;
+        } else {
+          alert('Please make sure to use a number for the click counter!');
+        }
+
+        // Check there is actually a new name for your cat
+        if(newName.value != '') {
+        curCat.name = newName.value;
+        } else {
+          alert('Please make sure to use a Name for your cat!');
+        }
+
+        // Render the image again with the new values.
+        catView.render();
+
+      } else if (cTarget == adminBtn && settings.classList.contains('open')) {
+        console.log('Fill the fields');
+        newImg.value = curCat.imgSrc;
+        newName.value = curCat.name;
+        newCount.value = curCat.clickCntr;
+
+        var imgValues = '';
+
+        for (var i = 0; i < catImgs.length; i++) {
+          if (i == (catImgs.length-1)){
+            imgValues = imgValues + catImgs[i];
+          } else {
+            imgValues = imgValues + catImgs[i] + ', ';
+          }
+        }
+
+        availImgList.innerHTML = imgValues;
+      }
     });
   }
 };

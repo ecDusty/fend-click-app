@@ -60,11 +60,35 @@ footer {
 
 
   #admin-btn {
-    background: darkgreen;
+    background: lightblue;
     padding: 5px;
     border-radius: 5px;
     max-width: 100px;
     margin-bottom: 15px;
+  }
+
+  #adForm {
+    background: purple;
+    padding: 30px;
+    max-width: 80%;
+    border-radius: 10px;
+
+    .buttons {
+      width: 100%;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 5px;
+      border-radius: 5px;
+      max-width: 100px;
+    }
+    #Cancel {
+      background: red;
+    }
+    #Confirm {
+      background: darkgreen;
+    }
   }
 }
 
