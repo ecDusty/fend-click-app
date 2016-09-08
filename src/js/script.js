@@ -1,58 +1,223 @@
 "use strict";
 
+
+/*==================
+
+     The MODEL
+
+===================*/
+
 var model = {
   currentCat: null,
   cats: [
     {
-      clickCount: 0,
-      name: null,
-      img: '/img/image-1.jpg',
+      clickCntr: 0,
+      name: '',
+      imgSrc: '/img/image-1.jpg',
       imgAttribution: 'https://www.flickr.com/photos/poplinre/625069434/in/photostream/'
-    }, {
-      clickCount: 0,
-      name: null,
-      img: '/img/image-2.jpg',
+    },
+    {
+      clickCntr: 0,
+      name: '',
+      imgSrc: '/img/image-2.jpg',
       imgAttribution: 'https://www.flickr.com/photos/chewie/2290467335'
-    }, {
-      clickCount: 0,
-      name: null,
-      img: '/img/image-3.jpg',
+    },
+    {
+      clickCntr: 0,
+      name: '',
+      imgSrc: '/img/image-3.jpg',
       imgAttribution: 'https://www.flickr.com/photos/dmzhuk1/13336297525/'
-    }, {
-      clickCount: 0,
-      name: null,
-      img: '/img/image-4.jpg',
+    },
+    {
+      clickCntr: 0,
+      name: '',
+      imgSrc: '/img/image-4.jpg',
       imgAttribution: 'https://www.flickr.com/photos/haituoi/12174748174/'
-    }, {
-      clickCount: 0,
-      name: null,
-      img: '/img/image-5.jpg',
+    },
+    {
+      clickCntr: 0,
+      name: '',
+      imgSrc: '/img/image-5.jpg',
       imgAttribution: 'https://www.flickr.com/photos/crerwin/1090235720/in/photolist-fpoqBx-2EkK6A-jd89Zh-oXYAc3-rbR7a7-eQyQ9s-pNfUb3-f8Lzve-7wUUmJ-neyNMh-fF1SNo-guvpL7-djzdoC-rRUeFg-dwECB4-byETEf-96GXNo-nD8t86-i3Px3A-eSjzEX-e8hn6f-u4ANKb-aj5nzB-bCywUs-7CnHSG-amRMr6-gsgu54-sBnYXd-doMGnr-rjNQrb-7xQDb4-e5tZLn-swMbdu-aVfJNM-bwJzGz-f3mWZv-qAudKg-76Vzfm-kb2n93-4BignY-96GXk5-hoYTLY-pLcapW-r6ud1t-qd3RjQ-4rPruQ-nF4Ynj-9oXBFj-5hJtCy-fJ6ud6'
-    }, {
-      clickCount: 0,
-      name: null,
-      img: '/img/image-6.jpg',
+    },
+    {
+      clickCntr: 0,
+      name: '',
+      imgSrc: '/img/image-6.jpg',
       imgAttribution: 'https://www.flickr.com/photos/jetske'
     }, {
-      clickCount: 0,
-      name: null,
-      img: '/img/image-7.jpg',
+      clickCntr: 0,
+      name: '',
+      imgSrc: '/img/image-7.jpg',
       imgAttribution: 'https://www.flickr.com/photos/8494589@N06/2177097057'
     }
   ],
+
   catNames: [
-  'Whiskers',
-  'Buttons',
-  'Mr. Wilkinson',
-  'James Bond',
-  'Ms. Patterson',
-  'Kronk',
-  'Titan'
-  ]
-}
+    'Whiskers',
+    'Buttons',
+    'Mr. Wilkinson',
+    'James Bond',
+    'Ms. Patterson',
+    'Kronk',
+    'Titan',
+    'Tims Pennyworth'
+  ],
+
+  //Bringing in the Fisher-Yates Array Shuffle Method. A great explanation and examples can be found here: https://bost.ocks.org/mike/shuffle/
+  arrayShuffle: function (array) {
+    var arrayLength = array.length,
+        arToRandomize, randomPoint;
+    while (arrayLength) {
+      randomPoint = Math.floor(Math.random() * arrayLength--);
+      arToRandomize = array[arrayLength];
+      array[arrayLength] = array[randomPoint];
+      array[randomPoint] = arToRandomize;
+    }
+  }
+};
+
+/*==================
+
+      OCTOPUS
+
+===================*/
 
 
-//Bringing in the Fisher-Yates Array Shuffle Method. A great explanation and examples can be found here: https://bost.ocks.org/mike/shuffle/
+var octopus = {
+
+    init: function() {
+        // set our current cat to the first one in the list
+        model.currentCat = model.cats[0];
+
+        model.arrayShuffle(model.cats);
+        for (var i = 0; i < model.cats.length;i++) {
+          model.cats[i].name = model.catNames[i];
+        }
+        // tell our views to initialize
+        catListView.init();
+        catView.init();
+    },
+
+    getCurrentCat: function() {
+        return model.currentCat;
+    },
+
+    getCats: function() {
+        return model.cats;
+    },
+
+    // set the currently-selected cat to the object passed in
+    setCurrentCat: function(cat) {
+        model.currentCat = cat;
+    },
+
+    // increments the counter for the currently-selected cat
+    incrementCounter: function() {
+        model.currentCat.clickCntr++;
+        catView.render();
+    }
+};
+
+
+
+/*==================
+
+      THE VIEW
+
+===================*/
+
+var catView = {
+
+    init: function() {
+        // store pointers to our DOM elements for easy access later
+        this.catElem = document.getElementById('cat');
+        this.catNameElem = document.getElementById('cat-name');
+        this.catImageElem = document.getElementById('cat-img');
+        this.countElem = document.getElementById('cat-count');
+
+        // on click, increment the current cat's counter
+        this.catImageElem.addEventListener('click', function(){
+            octopus.incrementCounter();
+        });
+
+        // render this view (update the DOM elements with the right values)
+        this.render();
+    },
+
+    render: function() {
+        // update the DOM elements with values from the current cat
+        var currentCat = octopus.getCurrentCat();
+        this.countElem.textContent = currentCat.clickCntr;
+        this.catNameElem.textContent = currentCat.name;
+        this.catImageElem.src = currentCat.imgSrc;
+    }
+};
+
+var catListView = {
+
+    init: function() {
+        // store the DOM element for easy access later
+        this.catListElem = document.getElementById('menu');
+
+        // render this view (update the DOM elements with the right values)
+        this.render();
+    },
+
+    render: function() {
+        var cat, elem, i;
+        // get the cats we'll be rendering from the octopus
+        var cats = octopus.getCats();
+
+        // empty the cat list
+        this.catListElem.innerHTML = '';
+
+        // Create a Title for the Menu
+        var mTitle = document.createElement('h2');
+        mTitle.id = 'menu-title';
+        mTitle.innerHTML = 'MENU';
+
+        mDisCon.appendChild(mTitle);
+
+        // loop over the cats
+        for (i = 0; i < cats.length; i++) {
+            // this is the cat we're currently looping over
+            cat = cats[i];
+
+            // make a new cat list item and set its text
+            elem = document.createElement('li');
+            elem.textContent = cat.name;
+
+            // on click, setCurrentCat and render the catView
+            // (this uses our closure-in-a-loop trick to connect the value
+            //  of the cat variable to the click event function)
+            elem.addEventListener('click', (function(catCopy) {
+                return function() {
+                    octopus.setCurrentCat(catCopy);
+                    catView.render();
+                };
+            })(cat));
+
+            // finally, add the element to the list
+            this.catListElem.appendChild(elem);
+        }
+    }
+};
+
+// make it go!
+octopus.init();
+
+
+
+
+
+
+/*==================
+
+    ! OLD CODE !
+
+===================*/
+
 function shuffle(array) {
   var m = array.length, t, i;
   while (m) {
