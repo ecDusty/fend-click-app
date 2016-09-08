@@ -25,24 +25,24 @@ Pick which ever tool you find works best for you, but for my project, Gulp is us
 As I develope on a Windows machine, these instructions are for windows users, but for the most part I believe they should work on Mac's as well as I use Git's Bash command line (Instead of PowerShell).
 
 1. Install npm on your machine
-	* The simplest way of doing this is installing [Node JS]
+    * The simplest way of doing this is installing [Node JS]
 
 2. Install Gulp Globally - _using command line_
-	* Make sure to include the '-g' flag. This tells npm to install it globally.
-	```sh
-	$ npm install gulp -g
-	```
+    * Make sure to include the '-g' flag. This tells npm to install it globally.
+    ```sh
+    $ npm install gulp -g
+    ```
 
 3. Run npm install program - _using command line_
   * As you have already downloaded my project, you have my **package.json** file, which has a list of all the dependencies and devdependencies needed for the project. By running 'npm install', your tell npm to run it's 'install' package on all the dependencies & devdependencies located within the package.json file
   * This is quicker than installing each gulp package required seperately
-	```sh
-	$ npm install
-	```
-	  *Small side note, gulp-eslint doesn't always install correctly. You may have to install it a second time to make sure.
-	  ```sh
-	  $npm install gulp-eslint
-	  ```
+    ```sh
+    $ npm install
+    ```
+      *Small side note, gulp-eslint doesn't always install correctly. You may have to install it a second time to make sure.
+      ```sh
+      $npm install gulp-eslint
+      ```
 
 4. Start testing your website
   * Just run gulp. This will create the test version of your site within the 'test' folder and start the local server.
@@ -71,17 +71,19 @@ As I develope on a Windows machine, these instructions are for windows users, bu
 
 ## Attribution
 
-  Cat Picture 1:
-  Cat Picture 2:
+  Cat Picture 1: https://www.flickr.com/photos/poplinre/625069434/in/photostream/
+  Cat Picture 2: https://www.flickr.com/photos/chewie/2290467335
   Cat Picture 3: https://www.flickr.com/photos/dmzhuk1/13336297525/
   Cat Picture 4: https://www.flickr.com/photos/haituoi/12174748174/
   Cat Picture 5: https://www.flickr.com/photos/crerwin/1090235720/in/photolist-fpoqBx-2EkK6A-jd89Zh-oXYAc3-rbR7a7-eQyQ9s-pNfUb3-f8Lzve-7wUUmJ-neyNMh-fF1SNo-guvpL7-djzdoC-rRUeFg-dwECB4-byETEf-96GXNo-nD8t86-i3Px3A-eSjzEX-e8hn6f-u4ANKb-aj5nzB-bCywUs-7CnHSG-amRMr6-gsgu54-sBnYXd-doMGnr-rjNQrb-7xQDb4-e5tZLn-swMbdu-aVfJNM-bwJzGz-f3mWZv-qAudKg-76Vzfm-kb2n93-4BignY-96GXk5-hoYTLY-pLcapW-r6ud1t-qd3RjQ-4rPruQ-nF4Ynj-9oXBFj-5hJtCy-fJ6ud6
+  Cat Picture 6: https://www.flickr.com/photos/jetske
+  Cat Picture 7: https://www.flickr.com/photos/8494589@N06/2177097057
 
 
 ## The TO-DO List
 
 1. Make a hamberger mobile menu
-	* Not part of the project guidelines but it's good practice!
+    * Not part of the project guidelines but it's good practice!
 
 [GO-CSS]: <https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery> "Google's Optimized CSS Delivery"
 [GitHub Pages]: <https://pages.github.com/> "GitHub hosting solution GitHub Pages"
