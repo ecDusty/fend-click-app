@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<meta charset="UTF-8">
-	<title>Cat Clicker</title>
-	<meta name="author" content="Erin Macalligan">
-	<meta name="description" content="A Cat clicking web app that'll count your clicks as you click on these adorable cats">
+  <meta charset="UTF-8">
+  <title>Cat Clicker</title>
+  <meta name="author" content="Erin Macalligan">
+  <meta name="description" content="A Cat clicking web app that'll count your clicks as you click on these adorable cats">
 <!--    <link rel="stylesheet" href="styles/style.css">-->
-	<meta name="viewport" content="width=device-width, initial-scale=1" >
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
   </head>
   <body>
-	<header id="menu" class="menu">
-	  <p>Menu</p>
-	</header>
-	<div id="display-container" class="container">
-		<div id="image-container">
-			<div id="cat" class="imgBox"><!--%data%-->
-				<img id="cat-img" class="clicker-image" src="" alt="%alt%"> <!--//CAT IMAGE-->
-				<h4 id="cat-name" class="image-label">Image %data%</h4><!-- //CAT NAME-->
-				<h3 id="cat-count">%data%</h3> <!--//COUNTER-->
-			</div>
-		</div>
-	  </div>
-	</div>
-	<footer></footer>
-	<script>
-	  var cbCSS = function() {
-		var l = document.createElement('link'); l.rel = 'stylesheet';
-		l.href = 'styles/style.css';
-		var h = document.getElementsByTagName('head')[0];
-		h.parentNode.appendChild(l, h);
-	  };
-	  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-		webkitRequestAnimationFrame || msRequestAnimationFrame;
-	  if (raf) raf(cbCSS);
-	  else window.addEventListener('load', cbCSS);
-	</script>
-	<script src="js/all.js"></script>
+  <header id="menu" class="menu">
+    <h2 id="menu-title">Menu</h2><!--The Menu Title-->
+    <div id="menu-container"><!--Container that holds all the menu items-->
+      <div class="menu-item"><!---->
+        <img class="menu-item-image" src="" alt=""><!---->
+      </div>
+    </div>
+  </header>
+  <div id="display-container" class="container">
+      <div id="image-container">
+        <div id="cat" class="imgBox active"><!--%data%-->
+          <img id="cat-img" class="clicker-image" src="" alt="%alt%" /> <!--//CAT IMAGE-->
+          <h4 id="cat-name" class="image-label">Image %data%</h4><!-- //CAT NAME-->
+          <h3 id="cat-count" class="imgCounter">%data%</h3> <!--//COUNTER-->
+        </div>
+      </div>
+    </div>
+  <footer>
+  </footer>
+  <script>
+    var cbCSS = function() {
+    var l = document.createElement('link'); l.rel = 'stylesheet';
+    l.href = 'styles/style.css';
+    var h = document.getElementsByTagName('head')[0];
+    h.parentNode.appendChild(l, h);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(cbCSS);
+    else window.addEventListener('load', cbCSS);
+  </script>
+  <script src="js/all.js"></script>
   </body>
 </html>
