@@ -2,6 +2,7 @@
 
 body {
   overflow: hidden;
+  background: purple;
 }
 
 img, .button {
@@ -30,7 +31,7 @@ img, .button {
   bottom: 0;
   top: 0;
   z-index: 10;
-  max-width: 106px;
+  max-width: 180px;
   width: 10%;
   min-width: 70px;
   background: purple;
@@ -64,6 +65,7 @@ footer {
     border-radius: 5px;
     max-width: 100px;
     margin-bottom: 25px;
+    transform: translate(0, 0);
     transition: transform 0.5s linear;
   }
 
@@ -110,7 +112,7 @@ footer.open {
   transform: translateY(50vh);
 
   #admin-btn {
-    transform: translateY(45px);
+    transform: translate(0, 45px);
     margin-bottom: 15px;
   }
 
