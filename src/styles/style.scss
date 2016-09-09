@@ -56,15 +56,15 @@ footer {
   position: fixed;
   width: 100%;
   z-index: 11;
-  transform:translateY(95vh);
-
+  transform: translateY(95vh);
 
   #admin-btn {
     background: lightblue;
     padding: 5px;
     border-radius: 5px;
     max-width: 100px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    transition: transform 0.5s linear;
   }
 
   #adForm {
@@ -82,6 +82,7 @@ footer {
       padding: 5px;
       border-radius: 5px;
       max-width: 100px;
+      margin: 5px;
     }
     #Cancel {
       background: red;
@@ -90,11 +91,30 @@ footer {
       background: darkgreen;
     }
   }
+
+  .catName, .newImgLine, .conCatCount {
+    margin: 5px;
+  }
+
+  .catName p, .catName input, .newImgLine p, .newImgLine input, .conCatCount p, .conCatCount input {
+    display: inline;
+    margin: 2px;
+  }
+
+  input {
+    border-radius: 5px;
+  }
 }
 
 footer.open {
-    transform: translateY(50vh);
+  transform: translateY(50vh);
+
+  #admin-btn {
+    transform: translateY(45px);
+    margin-bottom: 15px;
   }
+
+}
 
 /*==========================================
 =            The Cat Instances Image       =

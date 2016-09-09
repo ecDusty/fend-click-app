@@ -117,7 +117,7 @@ var octopus = {
     // tell our views to initialize
     catListView.init();
     catView.init();
-    catAdminView.init();
+    adminView.init();
   },
 
   getCurrentCat: function() {
@@ -243,7 +243,7 @@ var catListView = {
   }
 };
 
-var catAdminView = {
+var adminView = {
   init: function() {
     // Grab the settings element and button to open it
     this.adminElem = document.getElementById('settings');
@@ -264,70 +264,86 @@ var catAdminView = {
   render: function() {
     // Add event listener which will see it any of the buttons in the settings panel were clicked
     this.adminElem.addEventListener('click', function (e) {
+
+      // Add nice transition to adminElem
+      this.setAttribute('style','transition: all 0.5s linear;');
+
       var cTarget = e.target,
           curCat = octopus.getCurrentCat();
 
       // Check to make sure the image inputed is available
-      var catImgs = octopus.getImageList();
-      var imgAvail = false;
+      var catImgs = octopus.getImageList(),
+          imgAvail = false;
 
       // Toggle if Settings should show
-      if (cTarget == this.adminBtn || cTarget == this.cancelBtn || cTarget == confirmBtn) {
-        this.adminBtn.parentElement.classList.toggle('open');
+
+      if (cTarget == adminView.adminBtn || cTarget == adminView.cancelBtn || cTarget == adminView.confirmBtn) {
+        adminView.showForm();
       }
 
       // What happens when confirm button is clicked
-      if (cTarget == confirmBtn) {
-        this.newImg.value = this.newImg.value.toLowerCase();
+      if (cTarget == adminView.confirmBtn) {
+        adminView.newImg.value = adminView.newImg.value.toLowerCase();
         for (var i = 0; i < catImgs.length; i++) {
-          if (catImgs[i] == this.newImg.value)
+          if (catImgs[i] == adminView.newImg.value)
             imgAvail = true;
         }
 
         // If the image is available, set it, if not give user an alert
         if (imgAvail == true) {
-          curCat.imgSrc = this.newImg.value;
+          curCat.imgSrc = adminView.newImg.value;
         } else {
           alert('Please make sure to use an image that is available!');
-          this.adminBtn.parentElement.classList.toggle('open');
+          adminView.showForm();
         }
 
         // Check and make sure a number has been used with the counter
-        if (!isNaN(this.newCount.value)) {
-          curCat.clickCntr = this.newCount.value;
+        if (!isNaN(adminView.newCount.value)) {
+          curCat.clickCntr = adminView.newCount.value;
         } else {
           alert('Please make sure to use a number for the click counter!');
+          adminView.showForm();
         }
 
         // Check there is actually a new name for your cat
-        if(this.newName.value != '') {
-        curCat.name = this.newName.value;
+        if(adminView.newName.value != '') {
+        curCat.name = adminView.newName.value;
         } else {
           alert('Please make sure to use a Name for your cat!');
+          adminView.showForm();
         }
 
         // Render the image again with the new values.
         catView.render();
 
-      } else if (cTarget == this.adminBtn && this.adminElem.classList.contains('open')) {
-        console.log('Fill the fields');
-        this.newImg.value = curCat.imgSrc;
-        this.newName.value = curCat.name;
-        this.newCount.value = curCat.clickCntr;
-
-        var imgValues = '';
-
-        for (var i = 0; i < catImgs.length; i++) {
-          if (i == (catImgs.length-1)){
-            imgValues = imgValues + catImgs[i];
-          } else {
-            imgValues = imgValues + catImgs[i] + ', ';
-          }
-        }
-
-        this.availImgList.innerHTML = imgValues;
+      } else if (cTarget == adminView.adminBtn && adminView.adminElem.classList.contains('open')) {
+        // Populate form
+        adminView.popForm(curCat,catImgs);
       }
     });
+  },
+
+  popForm: function(cat,imgs) {
+    // Used to populate the form with information
+    this.newImg.value = cat.imgSrc;
+    this.newName.value = cat.name;
+    this.newCount.value = cat.clickCntr;
+
+    var imgValues = '';
+
+    for (var i = 0; i < imgs.length; i++) {
+      if (i == (imgs.length-1)){
+        imgValues = imgValues + imgs[i];
+      } else {
+        imgValues = imgValues + imgs[i] + ', ';
+      }
+    }
+
+    this.availImgList.innerHTML = imgValues;
+  },
+
+  showForm: function() {
+    this.adminElem.classList.toggle('open');
   }
 };
 
