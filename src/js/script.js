@@ -245,26 +245,25 @@ var catListView = {
 
 var catAdminView = {
   init: function() {
-    // Grab the element by
+    // Grab the settings element and button to open it
     this.adminElem = document.getElementById('settings');
+    this.adminBtn = document.getElementById('admin-btn');
+
+    // Grab Elements inside Settings Form
+    this.newName = document.getElementById('newCatName');
+    this.newImg = document.getElementById('newImgSrc');
+    this.availImgList = document.getElementById('imgsAvail');
+    this.newCount = document.getElementById('newCatCount');
+    this.cancelBtn = document.getElementById('Cancel');
+    this.confirmBtn = document.getElementById('Confirm');
 
     // Render this view (update the DOM elements with the right values)
     this.render();
   },
 
   render: function() {
-    // Grab all the parts of the Form
-    var adminBtn = document.getElementById('admin-btn'),
-        cancelBtn = document.getElementById('Cancel'),
-        confirmBtn = document.getElementById('Confirm'),
-        settings = document.getElementById('settings'),
-        newName = document.getElementById('newCatName'),
-        newImg = document.getElementById('newImgSrc'),
-        newCount = document.getElementById('newCatCount'),
-        availImgList = document.getElementById('imgsAvail');
-
     // Add event listener which will see it any of the buttons in the settings panel were clicked
-    settings.addEventListener('click', function (e) {
+    this.adminElem.addEventListener('click', function (e) {
       var cTarget = e.target,
           curCat = octopus.getCurrentCat();
 
@@ -273,36 +272,36 @@ var catAdminView = {
       var imgAvail = false;
 
       // Toggle if Settings should show
-      if (cTarget == adminBtn || cTarget == cancelBtn || cTarget == confirmBtn) {
-        adminBtn.parentElement.classList.toggle('open');
+      if (cTarget == this.adminBtn || cTarget == this.cancelBtn || cTarget == confirmBtn) {
+        this.adminBtn.parentElement.classList.toggle('open');
       }
 
       // What happens when confirm button is clicked
       if (cTarget == confirmBtn) {
-        newImg.value = newImg.value.toLowerCase();
+        this.newImg.value = this.newImg.value.toLowerCase();
         for (var i = 0; i < catImgs.length; i++) {
-          if (catImgs[i] == newImg.value)
+          if (catImgs[i] == this.newImg.value)
             imgAvail = true;
         }
 
         // If the image is available, set it, if not give user an alert
         if (imgAvail == true) {
-          curCat.imgSrc = newImg.value;
+          curCat.imgSrc = this.newImg.value;
         } else {
           alert('Please make sure to use an image that is available!');
-          adminBtn.parentElement.classList.toggle('open');
+          this.adminBtn.parentElement.classList.toggle('open');
         }
 
         // Check and make sure a number has been used with the counter
-        if (!isNaN(newCount.value)) {
-          curCat.clickCntr = newCount.value;
+        if (!isNaN(this.newCount.value)) {
+          curCat.clickCntr = this.newCount.value;
         } else {
           alert('Please make sure to use a number for the click counter!');
         }
 
         // Check there is actually a new name for your cat
-        if(newName.value != '') {
-        curCat.name = newName.value;
+        if(this.newName.value != '') {
+        curCat.name = this.newName.value;
         } else {
           alert('Please make sure to use a Name for your cat!');
         }
@@ -310,11 +309,11 @@ var catAdminView = {
         // Render the image again with the new values.
         catView.render();
 
-      } else if (cTarget == adminBtn && settings.classList.contains('open')) {
+      } else if (cTarget == this.adminBtn && this.adminElem.classList.contains('open')) {
         console.log('Fill the fields');
-        newImg.value = curCat.imgSrc;
-        newName.value = curCat.name;
-        newCount.value = curCat.clickCntr;
+        this.newImg.value = curCat.imgSrc;
+        this.newName.value = curCat.name;
+        this.newCount.value = curCat.clickCntr;
 
         var imgValues = '';
 
@@ -326,7 +325,7 @@ var catAdminView = {
           }
         }
 
-        availImgList.innerHTML = imgValues;
+        this.availImgList.innerHTML = imgValues;
       }
     });
   }
