@@ -14,49 +14,49 @@ var model = {
       clickCntr: 0,
       name: '',
       imgSrc: 'image-1',
-      imgAttribution: 'https://www.flickr.com/photos/poplinre/625069434/in/photostream/'
+      imgAttribution: ''
     },
     {
       clickCntr: 0,
       name: '',
       imgSrc: 'image-2',
-      imgAttribution: 'https://www.flickr.com/photos/chewie/2290467335'
+      imgAttribution: ''
     },
     {
       clickCntr: 0,
       name: '',
       imgSrc: 'image-3',
-      imgAttribution: 'https://www.flickr.com/photos/dmzhuk1/13336297525/'
+      imgAttribution: ''
     },
     {
       clickCntr: 0,
       name: '',
       imgSrc: 'image-4',
-      imgAttribution: 'https://www.flickr.com/photos/haituoi/12174748174/'
+      imgAttribution: ''
     },
     {
       clickCntr: 0,
       name: '',
       imgSrc: 'image-5',
-      imgAttribution: 'https://www.flickr.com/photos/crerwin/1090235720/in/photolist-fpoqBx-2EkK6A-jd89Zh-oXYAc3-rbR7a7-eQyQ9s-pNfUb3-f8Lzve-7wUUmJ-neyNMh-fF1SNo-guvpL7-djzdoC-rRUeFg-dwECB4-byETEf-96GXNo-nD8t86-i3Px3A-eSjzEX-e8hn6f-u4ANKb-aj5nzB-bCywUs-7CnHSG-amRMr6-gsgu54-sBnYXd-doMGnr-rjNQrb-7xQDb4-e5tZLn-swMbdu-aVfJNM-bwJzGz-f3mWZv-qAudKg-76Vzfm-kb2n93-4BignY-96GXk5-hoYTLY-pLcapW-r6ud1t-qd3RjQ-4rPruQ-nF4Ynj-9oXBFj-5hJtCy-fJ6ud6'
+      imgAttribution: ''
     },
     {
       clickCntr: 0,
       name: '',
       imgSrc: 'image-6',
-      imgAttribution: 'https://www.flickr.com/photos/jetske'
+      imgAttribution: ''
     },
     {
       clickCntr: 0,
       name: '',
       imgSrc: 'image-7',
-      imgAttribution: 'https://www.flickr.com/photos/8494589@N06/2177097057'
+      imgAttribution: ''
     },
     {
       clickCntr: 0,
       name: '',
       imgSrc: 'image-8',
-      imgAttribution: 'https://www.flickr.com/photos/deerwooduk/579761138'
+      imgAttribution: ''
     }
   ],
 
@@ -72,14 +72,38 @@ var model = {
   ],
 
   catImgs: [
-    'image-1',
-    'image-2',
-    'image-3',
-    'image-4',
-    'image-5',
-    'image-6',
-    'image-7',
-    'image-8'
+    {
+      img: 'image-1',
+      att: 'https://www.flickr.com/photos/poplinre/625069434/in/photostream/'
+    },
+    {
+      img: 'image-2',
+      att: 'https://www.flickr.com/photos/chewie/2290467335'
+    },
+    {
+      img: 'image-3',
+      att: 'https://www.flickr.com/photos/dmzhuk1/13336297525/'
+    },
+    {
+      img: 'image-4',
+      att: 'https://www.flickr.com/photos/haituoi/12174748174/'
+    },
+    {
+      img: 'image-5',
+      att: 'https://www.flickr.com/photos/crerwin/1090235720/in/photolist-fpoqBx-2EkK6A-jd89Zh-oXYAc3-rbR7a7-eQyQ9s-pNfUb3-f8Lzve-7wUUmJ-neyNMh-fF1SNo-guvpL7-djzdoC-rRUeFg-dwECB4-byETEf-96GXNo-nD8t86-i3Px3A-eSjzEX-e8hn6f-u4ANKb-aj5nzB-bCywUs-7CnHSG-amRMr6-gsgu54-sBnYXd-doMGnr-rjNQrb-7xQDb4-e5tZLn-swMbdu-aVfJNM-bwJzGz-f3mWZv-qAudKg-76Vzfm-kb2n93-4BignY-96GXk5-hoYTLY-pLcapW-r6ud1t-qd3RjQ-4rPruQ-nF4Ynj-9oXBFj-5hJtCy-fJ6ud6'
+    },
+    {
+      img: 'image-6',
+      att: 'https://www.flickr.com/photos/jetske'
+    },
+    {
+      img: 'image-7',
+      att: 'https://www.flickr.com/photos/8494589@N06/2177097057'
+    },
+    {
+      img: 'image-8',
+      att: 'https://www.flickr.com/photos/deerwooduk/579761138'
+    }
   ],
 
   //Bringing in the Fisher-Yates Array Shuffle Method. A great explanation and examples can be found here: https://bost.ocks.org/mike/shuffle/
@@ -112,7 +136,8 @@ var octopus = {
     model.arrayShuffle(model.catImgs);
     for (var i = 0; i < model.cats.length;i++) {
       model.cats[i].name = model.catNames[i];
-      model.cats[i].imgSrc = model.catImgs[i];
+      model.cats[i].imgSrc = model.catImgs[i].img;
+      mdoel.cats[i].imgAttribution = model.catImgs[i].att;
     }
     // tell our views to initialize
     catListView.init();
@@ -131,6 +156,27 @@ var octopus = {
   // set the currently-selected cat to the object passed in
   setCurrentCat: function(cat) {
     model.currentCat = cat;
+  },
+
+  setNewCat: function(name,img,count,attribute) {
+    var currentCat = this.getCurrentCat();
+    currentCat.clickCntr = count;
+    currentCat.imgSrc = img;
+    currentCat.name = name;
+    currentCat.imgAttribution = attribute;
+  },
+
+  hasCatImg: function(img) {
+    catImgs = octopus.getImageList
+
+    for (var i = 0; i < catImgs.length; i++) {
+          if (catImgs[i].img == img){
+            return {
+                    imgAvail: true,
+                    catAttribution: catImgs[i].att
+                   };
+          }
+        }
   },
 
   // increments the counter for the currently-selected cat
@@ -269,11 +315,14 @@ var adminView = {
       this.setAttribute('style','transition: all 0.5s linear;');
 
       var cTarget = e.target,
-          curCat = octopus.getCurrentCat();
+          curCat = octopus.getCurrentCat(),
+          catAttribution = '';
 
       // Check to make sure the image inputed is available
       var catImgs = octopus.getImageList(),
-          imgAvail = false;
+          imgAvail = false,
+          img = '',
+          imgOb = {};
 
       // Toggle if Settings should show
 
@@ -283,38 +332,39 @@ var adminView = {
 
       // What happens when confirm button is clicked
       if (cTarget == adminView.confirmBtn) {
-        adminView.newImg.value = adminView.newImg.value.toLowerCase();
-        for (var i = 0; i < catImgs.length; i++) {
-          if (catImgs[i] == adminView.newImg.value)
-            imgAvail = true;
+        img = adminView.newImg.value.toLowerCase();
+        imgOb = octopus.hasCatImg(img);
+
+        // Check and see if an image is available
+        if (imgOb) {
+          imgAvail = imgOb.imgAvail;
+          catAttribution = imgOb.catAttribution;
         }
 
         // If the image is available, set it, if not give user an alert
-        if (imgAvail == true) {
-          curCat.imgSrc = adminView.newImg.value;
-        } else {
-          alert('Please make sure to use an image that is available!');
+        if (imgAvail == false || isNaN(adminView.newCount.value) || adminView.newName.value == '') {
           adminView.showForm();
+
+          if (imgAvail == false) {
+           alert('Please make sure to use an image that is available!');
+          }
+          if (isNaN(adminView.newCount.value)) {
+           alert('Please make sure to use a number for the click counter!');
+          }
+          if (adminView.newName.value == '') {
+           alert('Please make sure to use a Name for your cat!');
+          }
+
+        } else {
+          // set the new Cat values
+          octopus.setNewCat(adminView.newName.value, adminView.newImg.value, adminView.newCount.value, catAttribution);
         }
 
-        // Check and make sure a number has been used with the counter
-        if (!isNaN(adminView.newCount.value)) {
-          curCat.clickCntr = adminView.newCount.value;
-        } else {
-          alert('Please make sure to use a number for the click counter!');
-          adminView.showForm();
-        }
 
-        // Check there is actually a new name for your cat
-        if(adminView.newName.value != '') {
-        curCat.name = adminView.newName.value;
-        } else {
-          alert('Please make sure to use a Name for your cat!');
-          adminView.showForm();
-        }
 
         // Render the image again with the new values.
         catView.render();
+        catListView.render();
 
       } else if (cTarget == adminView.adminBtn && adminView.adminElem.classList.contains('open')) {
         // Populate form
