@@ -137,7 +137,7 @@ var octopus = {
     for (var i = 0; i < model.cats.length;i++) {
       model.cats[i].name = model.catNames[i];
       model.cats[i].imgSrc = model.catImgs[i].img;
-      mdoel.cats[i].imgAttribution = model.catImgs[i].att;
+      model.cats[i].imgAttribution = model.catImgs[i].att;
     }
     // tell our views to initialize
     catListView.init();
@@ -166,17 +166,13 @@ var octopus = {
     currentCat.imgAttribution = attribute;
   },
 
-  hasCatImg: function(img) {
-    catImgs = octopus.getImageList
-
+  hasCatImg: function(image) {
+    var catImgs = octopus.getImageList();
     for (var i = 0; i < catImgs.length; i++) {
-          if (catImgs[i].img == img){
-            return {
-                    imgAvail: true,
-                    catAttribution: catImgs[i].att
-                   };
-          }
-        }
+      if (catImgs[i].img == image){
+        return {imgAvail: true, catAttribution: catImgs[i].att};
+      }
+    }
   },
 
   // increments the counter for the currently-selected cat
@@ -334,7 +330,6 @@ var adminView = {
       if (cTarget == adminView.confirmBtn) {
         img = adminView.newImg.value.toLowerCase();
         imgOb = octopus.hasCatImg(img);
-
         // Check and see if an image is available
         if (imgOb) {
           imgAvail = imgOb.imgAvail;
@@ -383,9 +378,9 @@ var adminView = {
 
     for (var i = 0; i < imgs.length; i++) {
       if (i == (imgs.length-1)){
-        imgValues = imgValues + imgs[i];
+        imgValues = imgValues + imgs[i].img;
       } else {
-        imgValues = imgValues + imgs[i] + ', ';
+        imgValues = imgValues + imgs[i].img + ', ';
       }
     }
 
