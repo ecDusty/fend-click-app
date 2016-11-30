@@ -1,0 +1,740 @@
+/* BACKGROUND COLOR */
+html, body, #bodyTable, #bodyCell, .bodytable, .bodycolor, .bodycolor table {
+  background-color: #EEEEEE;
+}
+
+/* CANVAS COLOR */
+.containertable, .block, .block table, .headerblock, .canvascolor {
+  background-color: #FFFFFF;
+}
+
+/* MENU AND FOOTER COLOR */
+.menucolor, .footercolor, .footercolor table {
+  background-color: #222222;
+}
+
+/* FONT COLOR */
+html, body, table { color: #3C3C3C; }
+
+body, table, #body_style, #backgroundTable, .ReadMsgBody, .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass th, .ExternalClass td, .ExternalClass div {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+html, body, #bodyTable, #bodyCell, .ReadMsgBody, .ExternalClass {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+table, th, td {
+  border-spacing: 0;
+}
+
+th {
+  padding: 0;
+  font-weight: normal;
+}
+
+.outsidelink {
+  color: #3C3C3C;
+}
+
+.outsidelink a {
+  color: #3C3C3C;;
+}
+
+/* STYLE NORMAL LINKS HERE */
+a, .yshortcuts, .yshortcuts a, .yshortcuts a:link, #outlook a, a[href^="tel"], a[href^="sms"] {
+  color: #3C3C3C;
+  text-decoration: none;
+  padding: 0;
+}
+
+a:visited, a:active, a:hover, a:focus, .yshortcuts a:visited, .yshortcuts a:active, .yshortcuts a:hover {
+  text-decoration: underline !important;
+}
+
+/* STYLE TITLES HERE */
+h1, h2, h3, h4, h5, h6 {
+
+  color: #EB1676;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: normal;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+h1 { font-size: 20px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; font-weight: normal; }
+h6 { font-size: 10px; }
+
+p {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.block p:last-child, .block .img p {
+  margin: 0 !important;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ul, ol {
+  list-style-position: outside;
+  padding-left: 17px;
+}
+
+.outlook ul, .outlook ol {
+  list-style-position: inside !important;
+  margin-left: 25px !important;
+}
+
+.outlook .outlookleft-width172 {
+  width: 172px !important;
+  margin-right: 20px;
+}
+
+.outlook .outlookleft-width270 {
+  width: 270px !important;
+  margin-right: 20px;
+}
+
+.outlook .outlookright-width172 {
+  width: 172px !important;
+  margin-left: 20px;
+}
+
+.outlook .outlookright-width270 {
+  width: 270px !important;
+  margin-left: 20px;
+}
+
+/* IMAGES */
+
+img {
+  display: block;
+  border: 0;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+  -ms-interpolation-mode: bicubic;
+}
+
+img.widthfull {
+  min-width: 100%;
+}
+
+:not(.outlook) img {
+  max-width: 100% !important;
+}
+
+.imgleft img, img.imgleft {
+  float: left;
+  padding: 0 20px 10px 0;
+}
+
+.imgright img, img.imgright {
+  float: right;
+  padding: 0 0 10px 20px;
+}
+
+a img {
+  border: 0;
+}
+
+/* STYLE LOGO ALT TEXT HERE */
+img.logo {
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.flat {
+  line-height: 0px;
+  font-size: 0px;
+}
+
+.flat img {
+  line-height: 16px;
+  font-size: 12px;
+}
+
+.flat p {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Use these on wrapper table to hide from desktop Outlook */
+.on360-show, .on500-show, .on600-show {
+  display: none;
+  font-size: 0px;
+  line-height: 0px;
+  height: 0px;
+  width: 0px;
+  max-height: 0px;
+}
+
+/* Use this on wrapper div to hide from desktop Gmail */
+.gmail-hide {
+  display: none;
+  overflow: hidden;
+  float: left;
+  width: 0px;
+  max-height: 0px;
+}
+
+/* STYLES FOR DEAFULT BLOCKS */
+.lineblock .center th {
+  height: 2px;
+  line-height: 2px;
+  font-size: 2px;
+}
+
+.lineblock .border {
+  border-top: 1px dotted #BBBBBB;
+}
+
+.headerblock th {
+  font-size: 16px;
+}
+
+.headerblock p {
+  margin: 0;
+  padding: 0;
+}
+
+table.menublock , .menublock a {
+  color: #CCCCCC;
+}
+
+.menublock table {
+  border-collapse: separate;
+}
+
+.menublock a {
+  display: block;
+}
+
+.menublock a:hover, .menublock a:active  {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.menublock a span {
+  float: right;
+}
+
+.menublock .border {
+  border-right: 1px solid #555555;
+}
+
+table.footerblock, .footerblock a {
+  color: #CCCCCC;
+}
+
+.footerblock a {
+  text-decoration: underline;
+}
+
+.footerblock .border {
+  border-right: 1px solid #555555;
+}
+
+.footerblock p {
+  margin: 0;
+  padding: 0;
+}
+
+.height4 {
+  height: 4px;
+  font-size: 4px;
+  line-height: 4px;
+}
+
+.height5 {
+  height: 5px;
+  font-size: 5px;
+  line-height: 5px;
+}
+
+.height10 {
+  height: 10px;
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.height15 {
+  height: 15px;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+.height20 {
+  height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.height25 {
+  height: 25px;
+  font-size: 25px;
+  line-height: 25px;
+}
+
+.height30 {
+  height: 30px;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.height35 {
+  height: 35px;
+  font-size: 35px;
+  line-height: 35px;
+}
+
+.height40 {
+  height: 40px;
+  font-size: 40px;
+  line-height: 40px;
+}
+
+/* CUSTOME STYLES (These are styles added for clients custom layout) */
+.greybackground {
+  background-color: #F1F1F2;
+}
+
+th.archivelink p {
+  font-size: 10px;
+  line-height: 3px;
+}
+
+th.social_sm, th.social_sm a img {
+  width: 25px;
+  height: 25px;
+}
+
+th.social_lg, th.social_lg a img {
+  width: 35px;
+  width: 35px;
+}
+
+*[class] .aligncenter {
+  text-align: center !important;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .themecolor {
+  color: #EB1676;
+}
+
+.specialbackground {
+  background-color: #E65525;
+}
+
+.specialbackground p {
+  color: #FFFFFF;
+}
+
+/* HEADER STYLES */
+
+
+/* FOOTER STYLES */
+.footermenu p a {
+  font-weight: 900;
+}
+
+.footersubmenu {
+  line-height: 6px;
+}
+
+/* PURPLE COLOR SPECIFIC STYLES */
+.purple h1, .purple h2, .purple h3, .purple h4, .purple h5, .purple h6, .purple h1 a, .purple h2 a, .purple h3 a, .purple h4 a, .purple h5 a, .purple h6 a, .purple p a, .purple .themecolor {
+  color: #B0006E;
+}
+
+.purple .specialbackground, .purple .specialbackground, .purple .specialbackground, .purple .specialbackground, .purple .specialbackground, .purple .specialbackground {
+
+}
+
+.purple .specialbackground h1, .purple .specialbackground h2, .purple .specialbackground h3, .purple .specialbackground h4, .purple .specialbackground h5, .purple .specialbackground h6 {
+
+}
+/* GREEN COLOR SPECIFIC STYLES */
+.green h1, .green h2, .green h3, .green h4, .green h5, .green h6, .green h1 a, .green h2 a, .green h3 a, .green h4 a, .green h5 a, .green h6 a, .green p a, , .green .themecolor {
+
+}
+
+.green .specialbackground, .green .specialbackground, .green .specialbackground, .green .specialbackground, .green .specialbackground, .green .specialbackground {
+}
+
+.green .specialbackground h1, .green .specialbackground h2, .green .specialbackground h3, .green .specialbackground h4, .green .specialbackground h5, .green .specialbackground h6 {
+}
+
+/* ORANGE COLOR SPECIFIC STYLES */
+.orange h1, .orange h2, .orange h3, .orange h4, .orange h5, .orange h6, .orange h1 a, .orange h2 a, .orange h3 a, .orange h4 a, .orange h5 a, .orange h6 a, .orange p a, .orange .themecolor {
+  color: #E65525;
+}
+
+.orange .specialbackground, .orange .specialbackground, .orange .specialbackground, .orange .specialbackground, .orange .specialbackground, .orange .specialbackground {
+  background-color: #E65525;
+}
+
+.orange .specialbackground h1, .orange .specialbackground h2, .orange .specialbackground h3, .orange .specialbackground h4, .orange .specialbackground h5, .orange .specialbackground h6 {
+  color: #FFD204;
+}
+
+/* BLUE COLOR SPECIFIC STYLES */
+.blue h1, .blue h2, .blue h3, .blue h4, .blue h5, .blue h6, .blue h1 a, .blue h2 a, .blue h3 a, .blue h4 a, .blue h5 a, .blue h6 a, .blue p a, .blue .themecolor {
+  color: #005A72;
+}
+
+.blue .specialbackground, .blue .specialbackground, .blue .specialbackground, .blue .specialbackground, .blue .specialbackground, .blue .specialbackground {
+  background-color: #005A72;
+}
+
+.blue .specialbackground h1, .blue .specialbackground h2, .blue .specialbackground h3, .blue .specialbackground h4, .blue .specialbackground h5, .blue .specialbackground h6 {
+  color: #45C3D3;
+}
+/* PINK COLOR SPECIFIC STYLES */
+.pink h1, .pink h2, .pink h3, .pink h4, .pink h5, .pink h6, .pink h1 a, .pink h2 a, .pink h3 a, .pink h4 a, .pink h5 a, .pink h6 a, .pink p a, .pink .themecolor {
+  color: #EB1676;
+}
+
+.pink .specialbackground, .pink .specialbackground, .pink .specialbackground, .pink .specialbackground, .pink .specialbackground, .pink .specialbackground {
+}
+
+.pink .specialbackground h1, .pink .specialbackground h2, .pink .specialbackground h3, .pink .specialbackground h4, .pink .specialbackground h5, .pink .specialbackground h6 {
+}
+/* SPECIAL STYLES FOR COLORED BOXES *.
+
+/* RESPONSIVE STYLES (Remove everything under this if the template should not be responsive.) */
+
+@media all and (max-width: 600px) {
+
+  /* BACKGROUND COLOR */
+  html, body, #bodyTable, #bodyCell, .bodytable, .bodycolor {
+    background-color: #FFFFFF !important;
+  }
+
+  /* Set block padding for mobile */
+  *[class] .on600-padding {
+    clear: both !important;
+    padding: 0 20px !important;
+  }
+
+  *[class] img {
+    display: inline-block !important;
+    height: auto !important;
+  }
+
+  *[class] .menublock .border {
+    border-right: 0 !important;
+    border-bottom: 1px solid #555555 !important;
+  }
+
+  *[class] .menublock a {
+    padding: 10px 15px !important;
+  }
+
+  *[class] .on600-hide {
+    display: none !important;
+  }
+
+  *[class] .on600-show {
+    display: block !important;
+    font-size: 100% !important;
+    line-height: 100% !important;
+    height: auto !important;
+    width: auto !important;
+    max-height: none !important;
+  }
+
+  *[class] table.on600-show {
+       display: table !important;
+  }
+
+  *[class] .on600-alignleft {
+    text-align: left !important;
+  }
+
+  *[class] .on600-aligncenter {
+    text-align: center !important;
+  }
+
+  *[class] .on600-alignright {
+    text-align: right !important;
+  }
+
+  *[class] .on600-paddingbottom20 {
+    padding-bottom: 20px !important;
+  }
+
+  *[class] .on600-marginright20 {
+    margin-right: 20px !important;
+  }
+
+  *[class] .on600-marginleft20 {
+    margin-left: 20px !important;
+  }
+
+  *[class] .on600-widthfull {
+    width: 100% !important;
+    min-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  *[class] th.on600-widthfull {
+    clear: both !important;
+    float: left !important;
+  }
+
+  *[class] table.on600-widthfull {
+    clear: both !important;
+  }
+
+  *[class] .on600-width2percent {
+    width: 2% !important;
+  }
+
+  *[class] .on600-width2-5percent {
+    width: 2.5% !important;
+  }
+
+  *[class] .on600-width5percent {
+    width: 5% !important;
+  }
+
+  *[class] .on600-width15percent {
+    width: 15% !important;
+  }
+
+  *[class] .on600-width8percent {
+    width: 8% !important;
+  }
+
+  *[class] .on600-width9percent {
+    width: 9% !important;
+  }
+
+  *[class] .on600-width11percent {
+    width: 10.75% !important;
+  }
+
+  *[class] .on600-width21percent {
+    width: 21.25% !important;
+  }
+
+  *[class] .on600-width25percent {
+    width: 25% !important;
+  }
+
+  *[class] .on600-width30percent {
+    width: 30% !important;
+  }
+
+  *[class] .on600-width44percent {
+    width: 44% !important;
+  }
+
+  *[class] .on600-width47percent {
+    width: 47.5% !important;
+  }
+
+  *[class] .on600-width49percent {
+    width: 49% !important;
+  }
+
+  *[class] .on600-width50percent {
+    width: 50% !important;
+  }
+
+  *[class] .on600-width60percent {
+    width: 60% !important;
+  }
+
+  *[class] .on600-width65percent {
+    width: 65% !important;
+  }
+
+  *[class] .on600-width75percent {
+    width: 75% !important;
+  }
+
+  *[class] .on600-width90percent {
+    width: 90% !important;
+  }
+
+  *[class] .on600-width95percent {
+    width: 95% !important;
+  }
+
+  *[class] .on600-height5 {
+    height: 5px !important;
+    font-size: 5px !important;
+    line-height: 5px !important;
+  }
+
+  *[class] .on600-height10 {
+    height: 10px !important;
+    font-size: 10px !important;
+    line-height: 10px !important;
+  }
+
+  *[class] .on600-width20 {
+    width: 20px !important;
+  }
+
+  .gmail-hide {
+    display: block !important;
+    overflow: visible !important;
+    float: none !important;
+    width: auto !important;
+    max-height: none !important;
+  }
+}
+
+@media all and (max-width: 500px) {
+
+  html, body, table {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    word-break: break-word;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      hyphens: auto;
+  }
+
+  *[class] .on500-hide {
+    display: none !important;
+  }
+
+  *[class] .on500-show {
+    display: block !important;
+    font-size: 100% !important;
+    line-height: 100% !important;
+    height: auto !important;
+    width: auto !important;
+    max-height: none !important;
+  }
+
+  *[class] table.on500-show {
+    display: table !important;
+  }
+
+  *[class] .on500-widthfull {
+    width: 100% !important;
+    min-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  *[class] th.on500-widthfull {
+    clear: both !important;
+    float: left !important;
+  }
+
+  *[class] table.on500-widthfull {
+    clear: both !important;
+  }
+
+  *[class] .on500-width30percent {
+    width: 30% !important;
+  }
+
+  *[class] .on500-width65percent {
+    width: 65% !important;
+  }
+
+  *[class] .on500-imgleft img {
+    float: left !important;
+    padding: 0 20px 10px 0 !important;
+  }
+
+  *[class] .on500-imgleft p.img {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+@media all and (max-width: 360px) {
+
+  *[class] .on360-hide {
+    display: none !important;
+  }
+
+  *[class] .on360-show {
+    display: block !important;
+    font-size: 100% !important;
+    line-height: 100% !important;
+    height: auto !important;
+    width: auto !important;
+    max-height: none !important;
+  }
+
+  *[class] .on360-widthfull {
+    width: 100% !important;
+    min-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  *[class] th.on360-widthfull {
+    clear: both !important;
+    float: left !important;
+  }
+
+  *[class] table.on360-widthfull {
+    clear: both !important;
+  }
+
+  *[class] .on360-width40 {
+    width: 40px !important;
+  }
+
+  *[class] .on360-height20 {
+    height: 20px !important;
+    font-size: 20px !important;
+    line-height: 20px !important;
+  }
+
+  *[class] .on360-height10 {
+    height: 10px !important;
+    font-size: 10px !important;
+    line-height: 10px !important;
+  }
+
+  *[class] .on360-movetop, *[class] th.on360-movetop {
+    display: table-header-group !important;
+    float: none !important;
+  }
+
+  *[class] .on360-movecenter, *[class] th.on360-movecenter {
+    display: table-row-group !important;
+    float: none !important;
+  }
+
+  *[class] .on360-movebottom, *[class] th.on360-movebottom {
+    display: table-footer-group !important;
+    float: none !important;
+  }
+}
