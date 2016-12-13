@@ -1,3 +1,4 @@
+/*global document alert*/
 "use strict";
 
 
